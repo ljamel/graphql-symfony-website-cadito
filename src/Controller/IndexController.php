@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Activitys;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,8 +12,17 @@ class IndexController extends AbstractController
     #[Route('/index', name: 'index')]
     public function index(): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT p
+            FROM App\Entity\Activitys p
+            ORDER BY p.id ASC'
+        )->setMaxResults(12);
+
+
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
+            'Leisures' => $query->getResult(),
         ]);
     }
 }

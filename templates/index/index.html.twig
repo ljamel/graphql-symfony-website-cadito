@@ -3,7 +3,6 @@
 {% block title %}Hello IndexController!{% endblock %}
 
 {% block body %}
-
     <article id="content">
         <section class="container content-padding-lg">
             <div class="row animated">
@@ -40,51 +39,25 @@
         </section><!-- .fullwidth-row -->
         <section class="container content-padding-lg">
             <div class="row animated">
+                {{ dump(Leisures) }}
                 <aside class="col-sm-12">
                     <h2 class="text-center"><small>What can you do at the Leisure Template?</small>LEISURE CLUB ACTIVITIES</h2>
                     <div class="services-carousel">
-                        <div class="item">
-                            <a href="activities.html" class="link-image"><img src="/html-final/images/spa.jpg" alt=""></a>
-                            <div class="item-content">
-                                <h4><a href="activities.html">Welness &amp; Spa Gateaway Weekend</a></h4>
-                                <p>Curabitur est gravida et libero vitae dictum. Magna pars studiorum, prodita quaerimus. </p>
+
+                        {%  for Leisure in Leisures %}
+
+                            <div class="item">
+                                <a href="{{ path('page', {slug: Leisure.slug})}}" class="link-image"><img src="/html-final/images/spa.jpg" alt=""></a>
+
+
+
+                                <div class="item-content">
+                                    <h4><a href="activities.html">{{ Leisure.title }}</a></h4>
+                                    <p>{{ Leisure.description }} </p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <a href="children.html" class="link-image"><img src="/html-final/images/pool.jpg" alt=""></a>
-                            <div class="item-content">
-                                <h4><a href="children.html">Indoor &amp; Outdoor Swimming Pools</a></h4>
-                                <p>Quam diu etiam furor iste tuus nos eludet? Curabitur est gravida et libero vitae dictum. </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <a href="dining.html" class="link-image"><img src="/html-final/images/food.jpg" alt=""></a>
-                            <div class="item-content">
-                                <h4><a href="dining.html">International Cuisine for all Your Tastes</a></h4>
-                                <p>A communi observantia non est recedendum. Cum ceteris in veneratione tui montes. </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <a href="activities.html" class="link-image"><img src="/html-final/images/sail.jpg" alt=""></a>
-                            <div class="item-content">
-                                <h4><a href="activities.html">Take our Yacht and Visit the Surroundings</a></h4>
-                                <p>Prima luce, cum quibus mons aliud  consensu ab eo. Quid securi etiam tamquam eu fugiat. </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <a href="rooms.html" class="link-image"><img src="/html-final/images/room.jpg" alt=""></a>
-                            <div class="item-content">
-                                <h4><a href="rooms.html">Studios &amp; VIP Exclusive Apartments</a></h4>
-                                <p>Magna pars studiorum, prodita quaerimus. Quid securi etiam tamquam eu fugiat nulla. </p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <a href="activities.html" class="link-image"><img src="/html-final/images/fitness.jpg" alt=""></a>
-                            <div class="item-content">
-                                <h4><a href="activities.html">Pro Fitness Instructor for Every Day Classes</a></h4>
-                                <p>Praeterea iter est quasdam res quas ex communi. Vivamus sagittis lacus vel augue laoreet. </p>
-                            </div>
-                        </div>
+
+                        {% endfor %}
                     </div><!-- .services-carousel -->
                 </aside><!-- .col-sm-12 -->
             </div><!-- .row -->
