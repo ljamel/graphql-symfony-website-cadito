@@ -13,7 +13,7 @@ cd graphq-symfony-website
 Add dependencies
 
 ```bash
-compoer install
+composer install
 ```
 
 Now start the server:
