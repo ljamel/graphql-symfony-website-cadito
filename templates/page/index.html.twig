@@ -23,13 +23,13 @@
                 <img src="images/tennis-ball.png" class="tennis-parallax" data-stellar-ratio="0.69343" alt="">
                 <div class="row animated">
                     <div class="col-sm-6">
-                        <img src="images/content-recreation.jpg" class="wp-image" alt="" />
+                        <img src="{{ resultPage.img }}" class="wp-image" alt="" />
                     </div>
                     <div class="col-sm-6">
-                        <h2><small>Indoor &amp; Outdoor</small>Tennis Courts</h2>
-                        <p class="lead">Ut enim ad minim veniam, quis nostrud exercitation. Ut enim ad minim veniam, quis nostrud exercitation. Prima luce, cum quibus mons aliud  consensu ab eo. Quam temere in vitiis, legem sancimus haerentia. Nihil hic munitissimus habendi senatus locus, nihil horum? Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</p>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation. Fabio vel iudice vincam, sunt in culpa qui officia. Non equidem invideo, miror magis posuere velit aliquet. Mercedem aut nummos unde unde extricat, amaras. A communi observantia non est recedendum. </p>
-                        <a href="#" class="btn btn-inline">Meet our Tennis Pro</a>
+                        <h2><small></small>{{ resultPage.title }}</h2>
+                        <p class="lead">{{ resultPage.description }}</p>
+                        <p>Adresse: {{ resultPage.address }} {{ resultPage.postcode }}</p>
+                        <a href="#" class="btn btn-inline">{{ resultPage.ville }}</a>
                     </div>
                 </div><!-- .row -->
                 <div class="row animated">
@@ -173,6 +173,8 @@
                         </table>
                         <br />
                         <a href="#" class="btn btn-primary">Make a Reservation</a>
+
+                        {{ dump(resultPage) }}
                     </div>
                 </div><!-- .row -->
             </div><!-- .container -->

@@ -189,6 +189,18 @@
             "./bin/console"
         ]
     },
+    "symfony/debug-bundle": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "0ce7a032d344fb7b661cd25d31914cd703ad445b"
+        },
+        "files": [
+            "./config/packages/dev/debug.yaml"
+        ]
+    },
     "symfony/dependency-injection": {
         "version": "v5.2.6"
     },
@@ -282,9 +294,6 @@
         "version": "v1.22.1"
     },
     "symfony/polyfill-php73": {
-        "version": "v1.22.1"
-    },
-    "symfony/polyfill-php80": {
         "version": "v1.22.1"
     },
     "symfony/property-access": {
