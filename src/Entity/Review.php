@@ -2,13 +2,11 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Review
- * @ApiResource()
  * @ORM\Table(name="review")
  * @ORM\Entity
  */

@@ -2,13 +2,11 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\BooksRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Books
- * @ApiResource()
  * @ORM\Table(name="books")
  * @ORM\Entity
  */
