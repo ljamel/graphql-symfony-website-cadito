@@ -25,6 +25,9 @@ Install package for your project
 ```bash
 sudo apt install php-cli php-common php-curl php-gd php-json php-mbstring php-mysql php-xml libapache2-mod-php
 ```
+```bash
+composer require doctrine/annotations
+```
 
 Install base de données
 ```bash
