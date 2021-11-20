@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Service\Meteo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,25 @@ class PageController extends AbstractController
 
         return $this->render('page/index.html.twig', [
             'resultPage' => $resultPage,
+        ]);
+    }
+
+    #[Route('/cat/{cat}', name: 'cat')]
+    public function cat($cat): Response
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $dql = "SELECT p
+            FROM App\Entity\Activitys p
+            where p.description like :cat
+            ORDER BY p.id ASC";
+        $query = $entityManager->createQuery($dql)->setMaxResults(52);
+        $query->setParameter('cat', '%' .$cat. '%');
+
+
+        return $this->render('page/cat.html.twig', [
+            'Leisures' => $query->getResult(),
         ]);
     }
 }

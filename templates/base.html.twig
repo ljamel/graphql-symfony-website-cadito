@@ -30,17 +30,20 @@
 <body>
 <div id="site">
     <header id="header" role="banner">
+
         <div class="header-row clearfix">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 absolute-header text-uppercase">
-                        <div class="pull-left"><i class="fa fa-map-marker"></i> France</div>
-                        <div class="pull-right">
-                            <span class="weather">Aujourd'hui <i data-icon="B"></i> {{ meteo }} &deg;C</span>
-                        </div>
-                    </div><!-- .absolute-header -->
-                </div><!-- .row -->
-            </div><!-- .container -->
+            {% if meteo is defined %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 absolute-header text-uppercase">
+                            <div class="pull-left"><i class="fa fa-map-marker"></i> France</div>
+                            <div class="pull-right">
+                                <span class="weather">Aujourd'hui <i data-icon="B"></i> {{ meteo }} &deg;C</span>
+                            </div>
+                        </div><!-- .absolute-header -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            {% endif %}
             <nav role="navigation" id="main-nav">
                 <div class="container">
                     <div class="row">
@@ -49,13 +52,13 @@
                             <input type="checkbox" id="toggle-main-nav" class="toggle-nav-input">
                             <ul id="menu-main-menu" class="menu">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item current_page_item">
-                                    <a href="index.html"><i class="fa fa-home hidden-xs"></i><span class="visible-xs-inline">Home</span></a>
+                                    <a href="/"><i class="fa fa-home hidden-xs"></i><span class="visible-xs-inline">Home</span></a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-parent-item">
-                                    <a href="">Sport</a>
+                                    <a href="{{ path('cat', {cat: 'sport'})}}">Sport</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                            <a href="rooms.html">Pleine air</a>
+                                            <a href="{{ path('cat', {cat: 'air'})}}">Pleine air</a>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
                                             <a href="room-view.html">Aquatique</a>
