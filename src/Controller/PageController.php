@@ -12,7 +12,9 @@ use App\Entity\Activitys;
 
 class PageController extends AbstractController
 {
-    #[Route('/page/{slug}', name: 'page')]
+    /**
+     * @Route("/page/{slug}", name="page")
+     */
     public function index(Request $request, string $slug): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -24,7 +26,9 @@ class PageController extends AbstractController
         ]);
     }
 
-    #[Route('/cat/{cat}', name: 'cat')]
+    /**
+     * @Route("/cat/{cat}", name="cat")
+     */
     public function cat($cat): Response
     {
 
