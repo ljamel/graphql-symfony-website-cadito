@@ -46,4 +46,25 @@ class PageController extends AbstractController
             'Leisures' => $query->getResult(),
         ]);
     }
+
+    /**
+     * @Route("/chearch/", name="chearch")
+     */
+    public function chearch(Request $request): Response
+    {
+        $chearch = $request->query->get("chearch");
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $dql = "SELECT p
+            FROM App\Entity\Activitys p
+            where p.description like :cat
+            ORDER BY p.id ASC";
+        $query = $entityManager->createQuery($dql)->setMaxResults(22);
+        $query->setParameter('cat', '%' .$chearch. '%');
+
+
+        return $this->render('page/cat.html.twig', [
+            'Leisures' => $query->getResult(),
+        ]);
+    }
 }

@@ -51,7 +51,7 @@
                             <a href="index.html" id="logo"><img src="images/logo-leisure.png" alt=""></a>
                             <input type="checkbox" id="toggle-main-nav" class="toggle-nav-input">
                             <ul id="menu-main-menu" class="menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item current_page_item">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page page_item">
                                     <a href="/"><i class="fa fa-home hidden-xs"></i><span class="visible-xs-inline">Home</span></a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-parent-item">
@@ -61,37 +61,32 @@
                                             <a href="{{ path('cat', {cat: 'air'})}}">Pleine air</a>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                            <a href="room-view.html">Aquatique</a>
+                                            <a href="{{ path('cat', {cat: 'aqua'})}}">Aquatique</a>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                            <a href="dining.html">Ballon</a>
+                                            <a href="{{ path('cat', {cat: 'ballon'})}}">Ballon</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
-                                    <a href="activities.html">Jeux</a>
+                                    <a href="{{ path('cat', {cat: 'jeu'})}}">Jeux</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                            <a href="activities.html">Réflection</a>
+                                            <a href="{{ path('cat', {cat: 'echec'})}}">Réflection</a>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                            <a href="children.html">Balle</a>
+                                            <a href="{{ path('cat', {cat: 'bal'})}}">Balle</a>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                            <a href="attractions.html">Attractions</a>
+                                            <a href="{{ path('cat', {cat: 'parc'})}}">Attractions</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                                    <a href="events.html">Evenements</a>
+                                    <a href="">Evenements</a>
                                 </li>
                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-parent-item"><a href="contact.html">Contact</a></li>
-                                <li class="menu-item">
-                                    <a href="#" class="search-button hidden-xs"><i class="fa fa-search"></i></a>
-                                    <form id="search-form-inline" action="search.html" class="visible-xs-block" role="search">
-                                        <input type="text" class="search-field" placeholder="Type something to search  ...">
-                                    </form><!-- #search-form-inline -->
-                                </li>
+
                             </ul><!-- .menu -->
                         </div><!-- .col-xs-12 -->
                     </div><!-- .row -->
@@ -100,7 +95,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 text-center">
-                                <input type="text" class="search-field" placeholder="Type something to search  ...">
+                                <input type="text" class="search-field" placeholder="Recherche  ...">
                                 <a href="#" class="close-search fa fa-search"></a>
                             </div>
                         </div>
@@ -188,13 +183,13 @@
         <div class="booking-row content-padding-xs">
             <div class="col-md-12">
                 <div class="row">
-                    <form role="form">
+                    <form role="form" action="{{ path('chearch')}}" method="get">
                         <div class="col-md-5 col-sm-6">
                             <label class="sr-only" >Trouvé une activité</label>
-                            <input type="text" class="form-control" placeholder="Trouvé une activité">
+                            <input type="text" name="chearch"  class="form-control" placeholder="Trouvé une activité">
                         </div>
                         <div class="col-md-2 col-sm-4">
-                            <input type="submit" class="btn btn-primary btn-block" name="Book a Room" value="Chercher">
+                            <input type="submit" class="btn btn-primary btn-block" value="Chercher">
                         </div>
                     </form>
                 </div><!-- .row -->
