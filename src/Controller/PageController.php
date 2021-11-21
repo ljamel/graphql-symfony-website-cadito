@@ -21,13 +21,21 @@ class PageController extends AbstractController
 
         $resultPage = $entityManager->getRepository(Activitys::class)->findOneBy(["slug" => $slug]);
 
+        $dql = "SELECT p
+            FROM App\Entity\Activitys p
+            where p.description like :cat
+            ORDER BY p.id ASC";
+        $query = $entityManager->createQuery($dql)->setMaxResults(12);
+        $query->setParameter('cat', '%' .$resultPage->getTitle(). '%');
+
         return $this->render('page/index.html.twig', [
             'resultPage' => $resultPage,
+            'Leisures' => $query->getResult(),
         ]);
     }
 
     /**
-     * @Route("/cat/{cat}", name="cat")
+     * @Route("/activiter/{cat}", name="cat")
      */
     public function cat($cat): Response
     {
