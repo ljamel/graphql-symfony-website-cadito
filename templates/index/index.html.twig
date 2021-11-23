@@ -7,12 +7,13 @@
         <section class="container content-padding-lg">
             <div class="row animated">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
-                    <h1 class="text-center"><small>What can you do with the Leisure Template?</small>AWARD WINNING RESORT</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non ornare eros. Ut pharetra ornare lorem, sit amet bibendum quam imperdiet ut.
+                    <h1 class="text-center"><small>Tous les loisirs et activités de France</small>Découvrez des loisirs et des lieux insolites</h1>
+                    <p class="lead">
+                        Divertissement pour toute la famille et tous les budgets.
+                        Mise à jour régulière des sorties et des événements.
+                        Vous trouverez des activités et de loisirs près de chez vous.
                     </p>
-                    <p>Duis diam eros, dignissim sed condimentum ac, vehicula nec nisl. Suspendisse condimentum libero tempus, accumsan augue et, varius dui. Morbi justo tortor, tincidunt ornare magna ut, molestie mattis enim. Cras ac justo et augue suscipit euismod vel eget lectus. Proin vehicula nunc arcu, pulvinar accumsan.
-                    </p>
-                    <a href="resort.html" class="btn btn-inline">What's happening at the Leisure Center?</a>
+                    <a href="{{ path('cat', {cat: 'e'})}}" class="btn btn-inline">Découvrez des loisirs</a>
                 </div><!-- .col-sm-8 -->
             </div><!-- .row -->
         </section><!-- .container -->
@@ -26,12 +27,10 @@
                             <img src="/html-final/images/photo1.jpg" class="parallax-image img-responsive" data-stellar-ratio="1.111111" alt="">
                         </div><!-- .content-column -->
                         <div class="content-column half last">
-                            <h2><small>Discover Nature at it's Finest</small>PLAY GOLF LIKE A PRO</h2>
-                            <p>Duis diam eros, dignissim sed condimentum ac, vehicula nec nisl. Suspendissecondimentum libero tempus, accumsan augue et, varius dui. Morbi justo tortor, tincidunt ornare magna ut, molestie mattis enim.
-                            </p>
-                            <p>Cras ac justo et augue suscipit euismod vel eget lectus. Proin vehicula nunc arcu, pulvinar accumsan nulla porta vel. Vivamus malesuada vitae sem ac pellentesque.
-                            </p>
-                            <a href="resort.html" class="btn btn-inline">Explore our Deluxe Golf Course</a>
+                            <h2><small>Partez à la découverte du monde</small>Aventure & passion</h2>
+                            <p>L’escalade de mur est également une activité envisageable pour allier sports et loisirs. Vous pouvez partir auprès des parcs de jeux intérieurs pour profiter du loisir en question. Un autre sport à sensation permet de passer du temps en famille. Exemple, le rafting, l’équitation, la voile ou le parachutisme. </p>
+                            <p></p>
+                            <a href="{{ path('cat', {cat: 'voyage'})}}" class="btn btn-inline">Explorer le monde</a>
                         </div><!-- .content-column -->
                     </div><!-- .parallax-container -->
                 </div><!-- .row -->

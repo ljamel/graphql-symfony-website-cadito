@@ -4,18 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="/public/favicon.png">
+    <link rel="icon" href="/favicon.png">
     <title>{% if resultPage.title is defined %}{{ resultPage.title }}{% else %} Loisirs pour toutes la famille{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/public/html-final/images/favicon.ico" rel="icon" type="image/png">
+    <link href="/html-final/images/favicon.ico" rel="icon" type="image/png">
     <link href="http://fonts.googleapis.com/css?family=Domine:400,700%7CRoboto:400,300,500,700,900" rel="stylesheet" type="text/css">
-    <link href="/public/html-final/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/public/html-final/css/owl.carousel.min.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/css/owl.theme.default.min.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/css/datepicker.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/style.css" rel="stylesheet" media="screen">
+    <link href="/html-final/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/html-final/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/html-final/css/owl.carousel.min.css" rel="stylesheet" media="screen">
+    <link href="/html-final/css/owl.theme.default.min.css" rel="stylesheet" media="screen">
+    <link href="/html-final/css/datepicker.css" rel="stylesheet" media="screen">
+    <link href="/html-final/style.css" rel="stylesheet" media="screen">
     <title>{% block title %}Welcome!{% endblock %}</title>
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
@@ -107,70 +107,70 @@
                     <input type="checkbox" class="toggle-nav-input" id="toggle-secondary-nav">
                     <ul class="menu">
                         <li class="menu-item">
-                            <a href="rooms.html">Accomodation <em>Rooms &amp; Suites</em></a>
+                            <a href="{{ path('cat', {cat: 'sport'})}}">Sport <em>Interieur &amp; Exterieur</em></a>
                             <ul class="sub-menu bg-accomodation">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="rooms.html">Standard Rooms</a>
+                                    <a href="{{ path('cat', {cat: 'velo'})}}">vélo</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="rooms.html">Deluxe Suites</a>
+                                    <a href="{{ path('cat', {cat: 'randonn'})}}">Randonnée</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="rooms.html">Beach Bungalow</a>
+                                    <a href="{{ path('cat', {cat: 'gym'})}}">Gym</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="rooms.html">Private Villa</a>
+                                    <a href="{{ path('cat', {cat: 'musc'})}}">Musculation</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="menu-item">
-                            <a href="activities.html">Pro Golf Club <em>12 Courses</em></a>
+                            <a href="{{ path('cat', {cat: 'eau'})}}">Aquatique <em>Sur l'eau & sous l'eau</em></a>
                             <ul class="sub-menu bg-golf">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Course Card</a>
+                                    <a href="{{ path('cat', {cat: 'bateau'})}}">Bateaux</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Championship Golf</a>
+                                    <a href="{{ path('cat', {cat: 'plonge'})}}">Plonger</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Private Lessons</a>
+                                    <a href="{{ path('cat', {cat: 'nage'})}}">Nage</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Golf Pro Bio</a>
+                                    <a href="{{ path('cat', {cat: 'surf'})}}">Surf</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="menu-item">
-                            <a href="activities.html">Tennis Courts <em>All Seasons</em></a>
+                            <a href="{{ path('cat', {cat: 'ball'})}}">Balle <em>Sport</em></a>
                             <ul class="sub-menu bg-tennis">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Outdoor Courts</a>
+                                    <a href="{{ path('cat', {cat: 'Basket'})}}">Basket ball</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Indoor Courts</a>
+                                    <a href="{{ path('cat', {cat: 'foot'})}}">Foot</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Tennis Academy</a>
+                                    <a href="{{ path('cat', {cat: 'tennis'})}}">Tennis</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Meet our Pro's</a>
+                                    <a href="{{ path('cat', {cat: 'volley'})}}">Volley ball</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="menu-item">
-                            <a href="activities.html">Swimming Pools <em>Outdoor &amp; Indoor</em></a>
+                            <a href="{{ path('cat', {cat: 'cultur'})}}">Culturelle <em>Musée &amp; Bibliothèque</em></a>
                             <ul class="sub-menu bg-pool">
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Day &amp; Night Pool</a>
+                                    <a href="{{ path('cat', {cat: 'musee'})}}">Musée</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Outdoor Pools</a>
+                                    <a href="{{ path('cat', {cat: 'biblioth'})}}">Bibliothèque</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Indoor Pools</a>
+                                    <a href="{{ path('cat', {cat: 'Theatre'})}}">Théatre</a>
                                 </li>
                                 <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                    <a href="activities.html">Children Pools</a>
+                                    <a href="{{ path('cat', {cat: 'spectacle'})}}">Spectacle</a>
                                 </li>
                             </ul>
                         </li>
@@ -202,50 +202,15 @@
         <div class="container">
             <div class="row" id="main-footer">
                 <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-                    <h5 class="widget-title">Leisure Club</h5>
-                    <p>St Andrews Scotland,
-                        United Kingdom KY16 8PN<br><br>
-
-                        Tel  +44 (0) 1334 837000<br>
-                        Fax +44 (0) 1334 837099</p>
+                    <h5 class="widget-title">Loisirs pour toutes la famille</h5>
+                    <p>Liste mise à jours toutes les semaines<br><br>
                 </aside><!-- .widget -->
                 <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-                    <h5 class="widget-title">The Resort</h5>
+                    <h5 class="widget-title">Information</h5>
                     <p>
-                        <a href="members.html">Member Bookings</a><br>
-                        <a href="events.html">Open Competitions</a><br>
-                        <a href="contact.html">Location</a><br>
-                        <a href="contact.html">Contact us</a><br>
-                        <a href="resort.html">Our Team</a><br>
-                    </p>
-                </aside><!-- .widget -->
-                <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-                    <h5 class="widget-title">The Club</h5>
-                    <p>
-                        <a href="resort.html">Clubhouse</a><br>
-                        <a href="resort.html">Officers &amp; Council </a><br>
-                        <a href="resort.html">History</a><br>
-                        <a href="resort.html">Locality</a><br>
-                        <a href="media-gallery.html">Gallery</a><br>
-                    </p>
-                </aside><!-- .widget -->
-                <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-                    <h5 class="widget-title">The Courses</h5>
-                    <p>
-                        <a href="activities.html">Headfort Old</a><br>
-                        <a href="activities.html">Headfort New</a><br>
-                        <a href="activities.html">Rankings</a><br>
-                        <a href="activities.html">Practice Facilities</a><br>
-                        <a href="media-gallery.html">Flora and Fauna</a><br>
-                    </p>
-                </aside><!-- .widget -->
-                <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-                    <h5 class="widget-title">Visitors</h5>
-                    <p>
-                        <a href="room-view.html">Visitor Booking</a><br>
-                        <a href="members.html">Green Fees</a><br>
-                        <a href="resort.html">Societies / Groups</a><br>
-                        <a href="testimonials.html">Testimonials</a><br>
+                        <a href="{{ path('propos')}}">A propos</a><br>
+                        <a href="{{ path('mentions')}}">Mentions légals</a><br>
+                        <a href="{{ path('contact')}}">Contact</a><br>
                     </p>
                 </aside><!-- .widget -->
                 <aside class="col-lg-2 col-md-3 col-sm-4 widget">
@@ -274,21 +239,21 @@
 
 </body>
 <!-- All Pages JS -->
-<script src="/public/html-final/js/jquery-1.11.1.min.js"></script>
-<script src="/public/html-final/js/bootstrap.min.js"></script>
-<script src="/public/html-final/js/dropdown-menu.min.js"></script>
-<script src="/public/html-final/js/waypoints.min.js"></script>
-<script src="/public/html-final/js/waypoints-sticky.min.js"></script>
-<script src="/public/html-final/js/jquery.velocity.min.js"></script>
-<script src="/public/html-final/js/velocity.ui.js"></script>
-<script src="/public/html-final/js/doubletaptogo.js"></script>
+<script src="/html-final/js/jquery-1.11.1.min.js"></script>
+<script src="/html-final/js/bootstrap.min.js"></script>
+<script src="/html-final/js/dropdown-menu.min.js"></script>
+<script src="/html-final/js/waypoints.min.js"></script>
+<script src="/html-final/js/waypoints-sticky.min.js"></script>
+<script src="/html-final/js/jquery.velocity.min.js"></script>
+<script src="/html-final/js/velocity.ui.js"></script>
+<script src="/html-final/js/doubletaptogo.js"></script>
 
 <!-- Individual JS -->
-<script src="/public/html-final/js/bootstrap.datepicker.min.js"></script>
-<script src="/public/html-final/js/jquery.stellar.min.js"></script>
-<script src="/public/html-final/js/owl.carousel.min.js"></script>
+<script src="/html-final/js/bootstrap.datepicker.min.js"></script>
+<script src="/html-final/js/jquery.stellar.min.js"></script>
+<script src="/html-final/js/owl.carousel.min.js"></script>
 
 <!-- Main JS -->
-<script src="/public/html-final/js/main.js"></script>
+<script src="/html-final/js/main.js"></script>
 </html>
 

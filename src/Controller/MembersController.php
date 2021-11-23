@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\Activitys;
+use App\Service\Meteo;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ConferenceController extends AbstractController
+class MembersController extends AbstractController
 {
-    #[Route('/conference', name: 'conference')]
+    /**
+     * @Route("/contact", name="contact")
+     */
     public function index(): Response
     {
-        return $this->render('conference/index.html.twig', [
-            'controller_name' => 'ConferenceController',
-        ]);
+        return $this->render('page/contact.html.twig');
     }
 }

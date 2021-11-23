@@ -47,7 +47,7 @@ class PageController extends AbstractController
             where p.description like :cat
             ORDER BY p.id ASC";
         $query = $entityManager->createQuery($dql)->setMaxResults(52);
-        $query->setParameter('cat', '%' .$cat. '%');
+        $query->setParameter('cat', '% ' .$cat. '%');
 
 
         return $this->render('page/cat.html.twig', [
@@ -74,5 +74,23 @@ class PageController extends AbstractController
         return $this->render('page/cat.html.twig', [
             'Leisures' => $query->getResult(),
         ]);
+    }
+
+    /**
+     * @Route("/propos", name="propos")
+     */
+    public function propos(): Response
+    {
+
+        return $this->render('page/propos.html.twig');
+    }
+
+    /**
+     * @Route("/mentions", name="mentions")
+     */
+    public function mentions(): Response
+    {
+
+        return $this->render('page/mentions.html.twig');
     }
 }
