@@ -61,14 +61,20 @@ class PageController extends AbstractController
     public function chearch(Request $request): Response
     {
         $chearch = $request->query->get("chearch");
+        $ville = $request->query->get("ville");
+        $prices = $request->query->get("price");
         $entityManager = $this->getDoctrine()->getManager();
 
         $dql = "SELECT p
             FROM App\Entity\Activitys p
             where p.description like :cat
+            and p.ville like :ville
+            and p.prices <= :prices
             ORDER BY p.id ASC";
         $query = $entityManager->createQuery($dql)->setMaxResults(22);
         $query->setParameter('cat', '%' .$chearch. '%');
+        $query->setParameter('ville', '%' .$ville. '%');
+        $query->setParameter('prices', $prices);
 
 
         return $this->render('page/cat.html.twig', [

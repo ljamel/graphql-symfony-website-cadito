@@ -13,11 +13,20 @@
         }
 
     </style>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
     <article id="content">
 
         <section class="container content-padding-lg">
             <h1>Contact</h1>
             <p>Mail: contact@progfacil.col</p>
+            {{ form_start(form) }}
+
+            {{ form_end(form) }}
         </section>
     </article><!-- #content -->
 
