@@ -50,9 +50,9 @@ class PageController extends AbstractController
         $query = $entityManager->createQuery($dql)->setMaxResults(52);
         $query->setParameter('cat', '% ' .$cat. '%');
 
-
         return $this->render('page/cat.html.twig', [
             'Leisures' => $query->getResult(),
+            'title' => $cat
         ]);
     }
 
