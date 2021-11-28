@@ -26,11 +26,12 @@ class PageController extends AbstractController
             where p.description like :cat
             ORDER BY p.id ASC";
         $query = $entityManager->createQuery($dql)->setMaxResults(12);
-        $query->setParameter('cat', '%' .$resultPage->getTitle(). '%');
+        $query->setParameter('cat', '%' .$slug. '%');
 
         return $this->render('page/index.html.twig', [
             'resultPage' => $resultPage,
             'Leisures' => $query->getResult(),
+            'title' => $resultPage->getTitle()
         ]);
     }
 

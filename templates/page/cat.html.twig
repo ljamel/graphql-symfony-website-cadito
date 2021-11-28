@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}page{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block body %}
     <style>
@@ -17,7 +17,7 @@
         <section class="container content-padding-lg">
             <div class="row animated">
                 <aside class="col-sm-12">
-                    <h2 class="text-center"><small>What can you do at the Leisure Template?</small>LEISURE CLUB ACTIVITIES</h2>
+                    <h2 class="text-center"><small>Résultat activités loisirs </small>{{ title }}</h2>
                     <div class="services-carousel">
 
                         {%  for Leisure in Leisures %}
