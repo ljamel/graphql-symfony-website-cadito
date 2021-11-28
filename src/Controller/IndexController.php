@@ -24,10 +24,17 @@ class IndexController extends AbstractController
             ORDER BY p.id ASC'
         )->setMaxResults(52);
 
+        $nb = $entityManager->createQuery(
+            'SELECT count(1)
+            FROM App\Entity\Activitys p
+            ORDER BY p.id ASC'
+        )->getSingleResult();
+
 
         return $this->render('index/index.html.twig', [
             'Leisures' => $query->getResult(),
-            'meteo' => $meteo->getTemp()
+            'meteo' => $meteo->getTemp(),
+            'nb' => $nb
         ]);
     }
 }
