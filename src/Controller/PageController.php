@@ -66,20 +66,11 @@ class PageController extends AbstractController
         $prices = $request->query->get("price");
         $entityManager = $this->getDoctrine()->getManager();
 
-        $dql = "SELECT p
-            FROM App\Entity\Activitys p
-            where p.description like :cat
-            and p.ville like :ville
-            and p.prices <= :prices
-            ORDER BY p.id ASC";
-        $query = $entityManager->createQuery($dql)->setMaxResults(22);
-        $query->setParameter('cat', '%' .$chearch. '%');
-        $query->setParameter('ville', '%' .$ville. '%');
-        $query->setParameter('prices', $prices);
-
+        $query = $entityManager->getRepository(Activitys::class)->chearch($chearch, $ville, $prices, $entityManager);
 
         return $this->render('page/cat.html.twig', [
             'Leisures' => $query->getResult(),
+            'title' => $chearch
         ]);
     }
 

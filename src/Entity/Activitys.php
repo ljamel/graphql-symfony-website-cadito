@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ActivitysRepository;
 
 
 /**
@@ -13,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     itemOperations={"get"}
  * )
  * @ORM\Table(name="activitys")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ActivitysRepository::class)
  */
 class Activitys
 {
