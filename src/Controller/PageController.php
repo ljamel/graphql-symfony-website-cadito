@@ -69,7 +69,7 @@ class PageController extends AbstractController
         $query = $entityManager->getRepository(Activitys::class)->chearch($chearch, $ville, $prices, $entityManager);
 
         return $this->render('page/cat.html.twig', [
-            'Leisures' => $query->getResult(),
+            'Leisures' => $query,
             'title' => $chearch
         ]);
     }

@@ -50,9 +50,15 @@ class ActivitysRepository extends ServiceEntityRepository
     }
     */
 
-    public function chearch($chearch, $ville, $prices, $entityManager)
+    public function chearch($search, $ville, $prices, $entityManager)
     {
+        $prices = intval($prices);
+        $sql = "SELECT * FROM activitys WHERE MATCH (activitys.description) AGAINST ('$search' IN BOOLEAN MODE) and activitys.ville like '%$ville%' and activitys.prices > $prices ;";
+        $stmt = $entityManager->getConnection()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->executeQuery()->fetchAll();
 
+        /*
         $dql = "SELECT p
             FROM App\Entity\Activitys p
             where p.description like :cat
@@ -63,12 +69,9 @@ class ActivitysRepository extends ServiceEntityRepository
         $query->setParameter('cat', '%' .$chearch. '%');
         $query->setParameter('ville', '%' .$ville. '%');
         $query->setParameter('prices', $prices);
+        */
 
 
-
-
-
-
-        return $query;
+        return $result;
     }
 }
