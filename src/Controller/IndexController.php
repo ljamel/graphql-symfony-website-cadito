@@ -21,7 +21,7 @@ class IndexController extends AbstractController
         $query = $entityManager->createQuery(
             'SELECT p
             FROM App\Entity\Activitys p
-            ORDER BY p.img ASC'
+            ORDER BY p.img DESC'
         )->setMaxResults(52);
 
         $nb = $entityManager->createQuery(
