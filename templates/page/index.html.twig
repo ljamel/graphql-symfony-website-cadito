@@ -42,15 +42,19 @@
                 </div>
             </div><!-- .container -->
         </section>
-        <section class="fullwidth-row bg-2 fixed cover">
-            <div class="container content-padding-lg content-padding-mobile-none">
-                <div class="row animated">
-                    <div class="col-sm-8 col-sm-offset-2 content-padding white-box">
+        <section class="container content-padding-lg">
+            <div class="row animated">
+                <aside class="col-sm-12">
+                    <h2 class="text-center">Trouvé d'autre activités loisirs dans votre ville</h2>
+                    <div class="services-carousel">
 
                         {%  for Leisure in Leisures %}
-aaaaaaaa
+
                             <div class="item">
                                 <a href="{{ path('page', {slug: Leisure.slug})}}" class="link-image"><img src="{{  Leisure.img }}" alt=""></a>
+
+
+
                                 <div class="item-content">
                                     <h4><a href="{{ path('page', {slug: Leisure.slug})}}">{{ Leisure.title }}</a></h4>
                                     <p>{{ Leisure.description|slice(0,150) }} </p>
@@ -58,10 +62,9 @@ aaaaaaaa
                             </div>
 
                         {% endfor %}
-
-                    </div>
-                </div>
-            </div>
-        </section><!-- .fullwidth-row -->
+                    </div><!-- .services-carousel -->
+                </aside><!-- .col-sm-12 -->
+            </div><!-- .row -->
+        </section><!-- .container -->
     </article><!-- #content -->
 {% endblock %}
