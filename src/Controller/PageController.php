@@ -21,17 +21,18 @@ class PageController extends AbstractController
 
         $resultPage = $entityManager->getRepository(Activitys::class)->findOneBy(["slug" => $slug]);
 
-        $dql = "SELECT p
+        $villes = $entityManager->createQuery(
+            'SELECT p
             FROM App\Entity\Activitys p
-            where p.description like :cat
-            ORDER BY p.id ASC";
-        $query = $entityManager->createQuery($dql)->setMaxResults(12);
-        $query->setParameter('cat', '%' .$slug. '%');
+            where p.ville like :ville
+            ORDER BY p.img DESC'
+        )->setMaxResults(12);
+        $villes->setParameter('ville', '%' .$resultPage->getVille(). '%');
 
         return $this->render('page/index.html.twig', [
             'resultPage' => $resultPage,
-            'Leisures' => $query->getResult(),
-            'title' => $resultPage->getTitle()
+            'title' => $resultPage->getTitle(),
+            'Leisures' => $villes->getResult()
         ]);
     }
 
