@@ -20,11 +20,11 @@
                         <img src="{{ resultPage.img }}" class="wp-image" alt="" />
                     </div>
                     <div class="col-sm-6">
-                        <h2><small></small>{{ resultPage.title }}</h2>
+                        <h2>{{ resultPage.title }}</h2>
                         <p class="lead">{{ resultPage.description }}</p>
                         <p>Adresse: {{ resultPage.address }} {{ resultPage.postcode }}</p>
                         <p>Ville: {{ resultPage.ville }}</p>
-                        Lien: <a href="{{ resultPage.link }}" class="btn btn-inline">{{ resultPage.title }}</a>
+                        {% if resultPage.link != "" %} Lien: <a href="{{ resultPage.link }}" class="btn btn-inline">{{ resultPage.title }}</a> {% endif %}
                     </div>
                 </div><!-- .row -->
                 <div class="row animated">
