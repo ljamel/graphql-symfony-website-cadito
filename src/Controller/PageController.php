@@ -47,7 +47,8 @@ class PageController extends AbstractController
         $dql = "SELECT p
             FROM App\Entity\Activitys p
             where p.description like :cat
-            ORDER BY p.id ASC";
+            and length(p.description) > 120
+            ORDER BY p.img DESC";
         $query = $entityManager->createQuery($dql)->setMaxResults(52);
         $query->setParameter('cat', '% ' .$cat. '%');
 
