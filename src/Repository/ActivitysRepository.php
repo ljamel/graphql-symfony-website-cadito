@@ -53,7 +53,7 @@ class ActivitysRepository extends ServiceEntityRepository
     public function chearch($search, $ville, $prices, $entityManager)
     {
         $prices = intval($prices);
-        $sql = "SELECT * FROM activitys WHERE MATCH (activitys.description) AGAINST ('$search') and activitys.ville like '%$ville%' and activitys.prices >= $prices ;";
+        $sql = "SELECT * FROM activitys WHERE MATCH (activitys.description) AGAINST ('$search') and activitys.ville like '%$ville%' and activitys.prices >= $prices limit 300;";
         $stmt = $entityManager->getConnection()->prepare($sql);
         $stmt->execute();
         $result = $stmt->executeQuery()->fetchAll();
