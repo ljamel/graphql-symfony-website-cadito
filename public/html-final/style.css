@@ -1727,6 +1727,7 @@ a .wp-image:hover{
 	position: relative;
 	display: block;
 	overflow: hidden;
+	height: 200px;
 }
 .services-carousel .link-image::after{
 	content: '\f178';
