@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'locbase.html.twig' %}
 
 {% block title %}Hello PageController!{% endblock %}
 
@@ -22,8 +22,8 @@
                     <div class="col-sm-6">
                         <h2>{{ resultPage.title }}</h2>
                         <p class="lead">{{ resultPage.description }}</p>
-                        <p>Adresse: {{ resultPage.address }} {{ resultPage.postcode }}</p>
-                        <p>Ville: <a href="https://www.google.com/maps/search/{{ resultPage.title }}/@{{ resultPage.latitude }},{{ resultPage.longitude }}" title="{{ resultPage.address }}">{{ resultPage.ville }}</a></p>
+                        <p>Adresse:<a target="_blank" href="https://www.google.com/maps/search/{{ resultPage.title }}/@{{ resultPage.latitude }},{{ resultPage.longitude }}" title="{{ resultPage.address }}"> {{ resultPage.address }} {{ resultPage.postcode }} <img src="/html-final/images/map_1135.png" alt="{{ resultPage.ville }}" style="width: 33px;"></a></p>
+                        <p>Ville: {{ resultPage.ville }} </p>
                         {% if resultPage.link != NULL %} Lien: <a href="{{ resultPage.link }}" class="btn btn-inline">{{ resultPage.title }}</a> {% endif %}
                     </div>
                 </div><!-- .row -->
