@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="/favicon.png">
-    <title>{% if resultPage.title is defined %}{{ resultPage.title }}{% else %} Loisirs pour toutes la famille{% endif %}</title>
+    <title>{% if resultPage.title is defined %}{{ resultPage.title }}{% else %} Loisirs pour toute la famille{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/public/html-final/images/favicon.ico" rel="icon" type="image/png">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/images/favicon.ico" rel="icon" type="image/png">
     <link href="http://fonts.googleapis.com/css?family=Domine:400,700%7CRoboto:400,300,500,700,900" rel="stylesheet" type="text/css">
-    <link href="/public/html-final/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/public/html-final/css/owl.carousel.min.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/css/owl.theme.default.min.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/css/datepicker.css" rel="stylesheet" media="screen">
-    <link href="/public/html-final/style.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/owl.carousel.min.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/owl.theme.default.min.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/datepicker.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/style.css" rel="stylesheet" media="screen">
     <title>{% block title %}Bienvenue{% endblock %}</title>
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
@@ -222,15 +222,12 @@
     <footer id="footer" role="contentinfo">
         <div class="container">
             <div class="row" id="main-footer">
-                <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-                    <h5 class="widget-title">Loisirs pour toutes la famille</h5>
-                    <p>Liste mise à jours toutes les semaines<br><br>
-                </aside><!-- .widget -->
+
                 <aside class="col-lg-2 col-md-3 col-sm-4 widget">
                     <h5 class="widget-title">Information</h5>
                     <p>
                         <a href="{{ path('propos')}}">A propos</a><br>
-                        <a href="{{ path('mentions')}}">Mentions légals</a><br>
+                        <a href="{{ path('mentions')}}">Mentions légales</a><br>
                         <a href="{{ path('contact')}}">Contact</a><br>
                     </p>
                 </aside><!-- .widget -->
@@ -262,21 +259,21 @@
 
 </body>
 <!-- All Pages JS -->
-<script src="/public/html-final/js/jquery-1.11.1.min.js"></script>
-<script src="/public/html-final/js/bootstrap.min.js"></script>
-<script src="/public/html-final/js/dropdown-menu.min.js"></script>
-<script src="/public/html-final/js/waypoints.min.js"></script>
-<script src="/public/html-final/js/waypoints-sticky.min.js"></script>
-<script src="/public/html-final/js/jquery.velocity.min.js"></script>
-<script src="/public/html-final/js/velocity.ui.js"></script>
-<script src="/public/html-final/js/doubletaptogo.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/jquery-1.11.1.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/bootstrap.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/dropdown-menu.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/waypoints.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/waypoints-sticky.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/jquery.velocity.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/velocity.ui.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/doubletaptogo.js"></script>
 
 <!-- Individual JS -->
-<script src="/public/html-final/js/bootstrap.datepicker.min.js"></script>
-<script src="/public/html-final/js/jquery.stellar.min.js"></script>
-<script src="/public/html-final/js/owl.carousel.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/bootstrap.datepicker.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/jquery.stellar.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/owl.carousel.min.js"></script>
 
 <!-- Main JS -->
-<script src="/public/html-final/js/main.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/main.js"></script>
 </html>
 
