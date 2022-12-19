@@ -414,7 +414,7 @@ hr.xs{
  */
 
 #header{
-	background-image: url('images/london-eye-945497_1280.jpg');
+	background-image: url('images/AdobeStock_539577976.jpeg');
 	background-repeat: no-repeat;
 	background-position: top right;
 	background-size: cover;
@@ -1851,7 +1851,7 @@ a .wp-image:hover{
 .content-column.two-three	{ width: 65.591482% }
 .content-column.two-four	{ width: 48.387226% }
 .content-column.three-four	{ width: 74.193611% }
-.content-column.last		{ margin-right: 0 !important }
+.content-column.last		{ margin-right: 0 !important; background-color: white;padding: 10px;}
 .clear						{ clear:both }
 .clearfix					{ clear: none !important; }
 @media (max-width:767px) {
