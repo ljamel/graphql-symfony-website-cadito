@@ -17,7 +17,7 @@ public function getTemp(): string
     }
     */
 
-    $meteo = 12;
+    $meteo = -2;
 
 return $meteo;
 }
