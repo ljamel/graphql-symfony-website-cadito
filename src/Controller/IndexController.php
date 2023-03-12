@@ -11,7 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     /**
+<<<<<<< HEAD
      * @Route("/", name="index")
+=======
+     * @Route("/index", name="index")
+>>>>>>> f31167d3780db8641374e9d228de3dc771c3cce8
      */
     public function index(Meteo $meteo): Response
     {
