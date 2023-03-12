@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/html-final/
+RewriteCond %{REQUEST_URI} !/images/
+RewriteCond %{REQUEST_URI} !/css/
+RewriteCond %{REQUEST_URI} !/js/
+RewriteCond %{REQUEST_URI} !/vendor/components/
+RewriteRule .* public/index.php/$0 [QSA,L]

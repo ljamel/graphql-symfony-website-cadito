@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.png">
+    <title>{% if resultPage.title is defined %}{{ resultPage.title }}{% else %} Loisirs pour toute la famille{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/images/favicon.ico" rel="icon" type="image/png">
+    <link href="http://fonts.googleapis.com/css?family=Domine:400,700%7CRoboto:400,300,500,700,900" rel="stylesheet" type="text/css">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/owl.carousel.min.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/owl.theme.default.min.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/css/datepicker.css" rel="stylesheet" media="screen">
+    <link href="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/style.css" rel="stylesheet" media="screen">
+    <title>{% block title %}Bienvenue{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        {#{{ encore_entry_link_tags('app') }}#}
+    {% endblock %}
+
+    {% block javascripts %}
+        {#{{ encore_entry_script_tags('app') }}#}
+    {% endblock %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114295896-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-114295896-1');
+    </script>
+
+</head>
+<body>
+<div id="site">
+    <header id="header" role="banner">
+
+        <div class="header-row clearfix">
+            {% if meteo is defined %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 absolute-header text-uppercase">
+                            <div class="pull-left"><i class="fa fa-map-marker"></i> France</div>
+                            <div class="pull-right">
+                                <span class="weather">Aujourd'hui <i data-icon="G"></i> {{ meteo }} &deg;C</span>
+                            </div>
+                        </div><!-- .absolute-header -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            {% endif %}
+            <nav role="navigation" id="main-nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul id="menu-main-menu" class="menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page page_item">
+                                    <a href="/"><i class="fa fa-home hidden-xs"></i><span class="visible-xs-inline">Home</span></a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-parent-item">
+                                    <a href="{{ path('cat', {cat: 'sport'})}}">Sport</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a href="{{ path('cat', {cat: 'air'})}}">Pleine air</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a href="{{ path('cat', {cat: 'aqua'})}}">Aquatique</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a href="{{ path('cat', {cat: 'air'})}}">Vol</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+                                    <a href="{{ path('cat', {cat: 'jeux'})}}">Jeux</a>
+                                   <!-- <ul class="sub-menu">
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a href="{{ path('cat', {cat: 'echec'})}}">Réflection</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a href="{{ path('cat', {cat: 'ball'})}}">Balle</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a href="{{ path('cat', {cat: 'parc'})}}">Attractions</a>
+                                        </li>
+                                    </ul> -->
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="{{ path('cat', {cat: 'evenemen'})}}">Evenements</a>
+                                </li>
+                               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-parent-item"><a href="{{ path('contact')}}">Contact</a></li>
+
+                            </ul><!-- .menu -->
+                        </div><!-- .col-xs-12 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </nav><!-- #main-nav -->
+            <nav role="navigation" id="secondary-nav">
+                <div class="container">
+                    <input type="checkbox" class="toggle-nav-input" id="toggle-secondary-nav">
+                    <ul class="menu">
+                        <li class="menu-item">
+                            <a href="{{ path('cat', {cat: 'sport'})}}">Sport <em>Interieur &amp; Exterieur</em></a>
+                            <ul class="sub-menu bg-accomodation">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'velo'})}}">vélo</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'randonn'})}}">Randonnée</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'gym'})}}">Gym</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ path('cat', {cat: 'eau'})}}">Aquatique <em>Sur l'eau & sous l'eau</em></a>
+                            <ul class="sub-menu bg-pool">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'bateau'})}}">Bateaux</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'plonge'})}}">Plonger</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'nage'})}}">Nage</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'surfing'})}}">Surf</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ path('cat', {cat: 'vol'})}}">Air <em>Dans les airs</em></a>
+                            <ul class="sub-menu bg-tennis">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'montg'})}}">Montgolfière</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'hélico'})}}">Hélicoptère</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'parachu'})}}">Parachute</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'ulm'})}}">ULM et avion</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ path('cat', {cat: 'cultur'})}}">Culturelle <em>Musée &amp; Bibliothèque</em></a>
+                            <ul class="sub-menu bg-golf">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'musee'})}}">Musée</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'biblioth'})}}">Bibliothèque</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'Theatre'})}}">Théatre</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                    <a href="{{ path('cat', {cat: 'spectacle'})}}">Spectacle</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!-- .menu -->
+                </div><!-- .container -->
+            </nav><!-- #secondary-nav -->
+            <label class="toggle-nav-label" for="toggle-main-nav"><i class="fa fa-home"></i><a href="/" class="white"> Accueil </a></label>
+            <label class="toggle-nav-label" for="toggle-secondary-nav"><i class="fa fa-bars fa-lg"></i> Menu</label>
+        </div><!-- .header-row -->
+
+        <h1 class="white col-md-12">Loisirs pour toute la famille</h1>
+        <p class="white col-md-5">Divertissement pour toute la famille et tous les budgets. Mise à jour régulière des sorties et des événements. Vous trouverez forcément des activités et des loisirs près de chez vous.</p>
+
+        <div class="booking-row content-padding-xs">
+            <div class="col-md-12">
+                <div class="row">
+                    <form role="form" action="{{ path('chearch')}}" method="get">
+                        <div class="col-md-5 col-sm-6">
+                            <label class="sr-only" >Trouver une activité</label>
+                            <input type="text" name="chearch"  class="form-control" placeholder="Trouver une activité">
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <label class="sr-only" >Ville</label>
+                            <input list="ville" type="text" name="ville"  class="form-control" placeholder="Ville">
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <label class="sr-only" >Budget</label>
+                            <input type="number" name="price"  class="form-control" placeholder="0 €">
+                        </div>
+
+                        <datalist id="ville">
+                            <option>Paris</option>
+                            <option>Ile-de-france</option>
+                            <option>Lyon</option>
+                            <option>Bordeaux</option>
+                            <option>Toulon</option>
+                            <option>Marseill</option>
+                            <option>Nice</option>
+                            <option>Lille</option>
+                            <option>Strasbourg</option>
+                            <option>Toulouse</option>
+                            <option>Nantes</option>
+                        </datalist>
+                        <div class="col-md-2 col-sm-4">
+                            <input type="submit" class="btn btn-primary btn-block" value="Chercher">
+                        </div>
+                    </form>
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .booking-row -->
+    </header><!-- #header -->
+    {% block body %}{% endblock %}
+
+    <footer id="footer" role="contentinfo">
+        <div class="container">
+            <div class="row" id="main-footer">
+
+                <aside class="col-lg-2 col-md-3 col-sm-4 widget">
+                    <h5 class="widget-title">Information</h5>
+                    <p>
+                        <a href="{{ path('propos')}}">A propos</a><br>
+                        <a href="{{ path('mentions')}}">Mentions légales</a><br>
+                        <a href="{{ path('contact')}}">Contact</a><br>
+                    </p>
+                </aside><!-- .widget -->
+                <aside class="col-lg-2 col-md-3 col-sm-4 widget">
+
+                </aside><!-- .widget -->
+            </div><!-- end .row -->
+            <div class="row" id="absolute-footer">
+                <div class="col-sm-12">
+                    <aside class="widget">
+                        <p> Tout droit réserver
+                            <!--
+                            <span class="pull-right hidden-xs">
+		  							<a href="#" class="fa fa-boxed fa-rss" data-toggle="tooltip" data-placement="left" title="Leisure RSS"></a>
+		  							<a href="http://www.pinterest.com/raducretu/curly-themes/" class="fa fa-boxed fa-pinterest" data-toggle="tooltip" data-placement="left" title="Leisure Pintrest Board"></a>
+		  							<a href="https://www.facebook.com/cthemes" class="fa fa-boxed fa-facebook" data-toggle="tooltip" data-placement="left" title="Leisure on Facebook"></a>
+		  							<a href="https://twitter.com/CurlyThemes" class="fa fa-boxed fa-twitter" data-toggle="tooltip" data-placement="left" title="Leisure on Twitter"></a>
+                            </span>
+                            -->
+                        </p>
+                    </aside><!-- .widget -->
+                </div><!-- .col-sm-12 -->
+            </div><!-- #absolute-footer -->
+        </div><!-- .container -->
+    </footer><!-- #footer -->
+</div><!-- #site -->
+
+
+
+</body>
+<!-- All Pages JS -->
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/jquery-1.11.1.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/bootstrap.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/dropdown-menu.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/waypoints.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/waypoints-sticky.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/jquery.velocity.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/velocity.ui.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/doubletaptogo.js"></script>
+
+<!-- Individual JS -->
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/bootstrap.datepicker.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/jquery.stellar.min.js"></script>
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/owl.carousel.min.js"></script>
+
+<!-- Main JS -->
+<script src="{% if app.environment == 'dev' %}{% else %}/public{% endif %}/html-final/js/main.js"></script>
+<script type="text/javascript" src="https://click123.ca/dist/js/snow.js"></script>
+</html>
+

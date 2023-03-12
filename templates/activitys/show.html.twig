@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activitys{% endblock %}
+
+{% block body %}
+    <h1>Activitys</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ activity.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ activity.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ activity.description }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ activity.link }}</td>
+            </tr>
+            <tr>
+                <th>Prices</th>
+                <td>{{ activity.prices }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ activity.note }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ activity.address }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ activity.ville }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ activity.img }}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ activity.latitude }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ activity.longitude }}</td>
+            </tr>
+            <tr>
+                <th>Postcode</th>
+                <td>{{ activity.postcode }}</td>
+            </tr>
+            <tr>
+                <th>IduserId</th>
+                <td>{{ activity.iduserId }}</td>
+            </tr>
+            <tr>
+                <th>Publish</th>
+                <td>{{ activity.publish }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ activity.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_activitys_index') }}">back to list</a>
+
+    <a href="{{ path('app_activitys_edit', {'id': activity.id}) }}">edit</a>
+
+    {{ include('activitys/_delete_form.html.twig') }}
+{% endblock %}

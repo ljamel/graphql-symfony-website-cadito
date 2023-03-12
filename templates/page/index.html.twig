@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PageController!{% endblock %}
+
+{% block body %}
+
+    <style>
+        #header{
+            min-height: 370px!important;
+        }
+        .row.animated {
+            opacity: 1;
+        }
+    </style>
+    <article id="content">
+        <section class="">
+            <div class="container content-padding-lg parallax-container" data-stellar-offset-parent="true">
+              <div class="row animated">
+                    <div class="col-sm-6">
+                        <img src="{{ resultPage.img }}" class="wp-image" alt="" />
+                    </div>
+                    <div class="col-sm-6">
+                        <h2>{{ resultPage.title }}</h2>
+                        <p class="lead">{{ resultPage.description }}</p>
+                        <p>Adresse:<a target="_blank" href="https://www.google.com/maps/search/{{ resultPage.title }}/@{{ resultPage.latitude }},{{ resultPage.longitude }}" title="{{ resultPage.address }}"> {{ resultPage.address }} {{ resultPage.postcode }} <img src="/public/html-final/images/map_1135.png" alt="{{ resultPage.ville }}" style="width: 33px;"></a></p>
+                        <p>Ville: {{ resultPage.ville }} </p>
+                        {% if resultPage.link != NULL %} Lien: <a href="{{ resultPage.link }}" class="btn btn-inline">{{ resultPage.title }}</a> {% endif %}
+                    </div>
+                </div><!-- .row -->
+                <div class="row animated">
+                    <div class="col-sm-6 col-sm-offset-3 text-center">
+                        <h2 class="text-uppercase text-center">Tarif</h2>
+                        <table class="table table-responsive">
+                            <tbody>
+                            <tr>
+                                <td class="text-left"><strong>A partir de</strong></td>
+                                <td class="text-right">{{ resultPage.prices }} €</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- .container -->
+        </section>
+        <section class="container content-padding-lg">
+            <div class="row animated">
+                <aside class="col-sm-12">
+                    <h2 class="text-center">Trouver d'autre activités loisirs dans votre ville</h2>
+                    <div class="services-carousel">
+
+                        {%  for Leisure in Leisures %}
+
+                            <div class="item">
+                                <a href="{{ path('page', {slug: Leisure.slug})}}" class="link-image"><img src="{{  Leisure.img }}" alt=""></a>
+
+
+
+                                <div class="item-content">
+                                    <h4><a href="{{ path('page', {slug: Leisure.slug})}}">{{ Leisure.title }}</a></h4>
+                                    <p>{{ Leisure.description|slice(0,150) }} </p>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div><!-- .services-carousel -->
+                </aside><!-- .col-sm-12 -->
+            </div><!-- .row -->
+        </section><!-- .container -->
+    </article><!-- #content -->
+{% endblock %}

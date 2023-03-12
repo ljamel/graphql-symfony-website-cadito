@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les loisirs et activités de France{% endblock %}
+
+{% block body %}
+    <article id="content">
+        <section class="container content-padding-lg">
+            <div class="row animated">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <h2 class="text-center"><small>Déja plus de {{ nb.1 }} activités loisirs répertoriées sur toute la France </small>Découvrez des loisirs et des lieux insolites</h2>
+                    <p class="lead">
+                        Divertissement pour toute la famille et tous les budgets.
+                        Mise à jour régulière des sorties et des événements.
+                        Vous trouverez des activités et de loisirs près de chez vous.
+                    </p>
+                    <a href="{{ path('cat', {cat: 'e'})}}" class="btn btn-inline">Découvrez des loisirs</a>
+                </div><!-- .col-sm-8 -->
+            </div><!-- .row -->
+        </section><!-- .container -->
+        <section class="fullwidth-row">
+            <div class="container content-padding-xl">
+                <div class="row animated">
+                    <div class="col-sm-12 parallax-container" data-stellar-offset-parent="true" data-stellar-vertical-offset="150">
+                        <div class="content-column half text-center">
+                            <img src="/public/html-final/images/paris.jpg" class="parallax-image img-responsive" data-stellar-ratio="1.15123" alt="">
+                            <img src="/public/html-final/images/bordeaux.jpg" class="parallax-image img-responsive" data-stellar-ratio="0.94456456" alt="">
+                            <img src="/public/html-final/images/strasbourg.jpg" class="parallax-image img-responsive" data-stellar-ratio="1.111111" alt="">
+                        </div><!-- .content-column -->
+                        <div class="content-column half last">
+                            <h2><small>Partez à la découverte du monde</small>Aventure & passion</h2>
+                            <p>L’escalade de mur est également une activité envisageable pour allier sports et loisirs. Vous pouvez partir auprès des parcs de jeux intérieurs pour profiter du loisir en question. Un autre sport à sensation permet de passer du temps en famille. Exemple, le rafting, l’équitation, la voile ou le parachutisme. </p>
+                            <p></p>
+                            <a href="{{ path('cat', {cat: 'voyage'})}}" class="btn btn-inline">Explorer le monde</a>
+                        </div><!-- .content-column -->
+                    </div><!-- .parallax-container -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </section><!-- .fullwidth-row -->
+        <section class="container content-padding-lg">
+            <div class="row animated">
+                <aside class="col-sm-12">
+                    <h2 class="text-center"><small>Dernière activités loisirs</small>LOISIRS ET SPORTS POUR TOUS</h2>
+                    <div class="services-carousel">
+
+                        {%  for Leisure in Leisures %}
+
+                            <div class="item">
+                                <a href="{{ path('page', {slug: Leisure.slug|upper })}}" class="link-image"><img src="{{  Leisure.img }}" alt=""></a>
+
+
+
+                                <div class="item-content">
+                                    <h4><a href="{{ path('page', {slug: Leisure.slug|upper })}}">{{ Leisure.title|upper }}</a></h4>
+                                    <p>{{ Leisure.description|slice(0,150) }} </p>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div><!-- .services-carousel -->
+                </aside><!-- .col-sm-12 -->
+            </div><!-- .row -->
+        </section><!-- .container -->
+    </article><!-- #content -->
+
+{% endblock %}
